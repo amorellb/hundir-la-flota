@@ -2,6 +2,7 @@ package com.jaume.penjat;
 
 public class Tauler {
     private Integer intents;
+    private String paraulaSecreta;
 
     /*
      * Constructors
@@ -10,20 +11,27 @@ public class Tauler {
     public Tauler() {
     }
     // Constructor
-    public Tauler(Integer intents) {
+    public Tauler(Integer intents, String paraulaSecreta) {
         this.intents = intents;
+        this.paraulaSecreta = paraulaSecreta;
     }
 
     /*
     * Getters y Setters
     * */
-    // Getter
+    // Getters
     public Integer getIntents() {
         return intents;
     }
-    // Setter
+    public String getParaulaSecreta() {
+        return paraulaSecreta;
+    }
+    // Setters
     public void setIntents(Integer intents) {
         this.intents = intents;
+    }
+    public void setParaulaSecreta(String paraulaSecreta) {
+        this.paraulaSecreta = paraulaSecreta;
     }
 
     /*
