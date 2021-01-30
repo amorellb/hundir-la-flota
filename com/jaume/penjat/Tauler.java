@@ -4,7 +4,7 @@ public class Tauler {
     private Integer intents;
 
     /*
-     * Constructores
+     * Constructors
      * */
     // Constructor vacío
     public Tauler() {
@@ -24,5 +24,13 @@ public class Tauler {
     // Setter
     public void setIntents(Integer intents) {
         this.intents = intents;
+    }
+
+    /*
+    * Methods
+    * */
+    // Método inicialitzarPartida
+    public inicialitzarPartida(String paraula, Integer nombreLletres) {
+
     }
 }
