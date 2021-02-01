@@ -43,4 +43,13 @@ public class Tauler {
         setParaulaSecreta(words);
         setIntents(vides);
     }
+
+    // Método verificar
+    public String verificar(String lletra) {
+        for (char word : paraulaSecreta) {
+            if (Character.toString(word).equals(lletra))
+            return lletra;
+        }
+        return "Lletra incorrecte";
+    }
 }
