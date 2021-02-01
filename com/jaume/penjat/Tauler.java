@@ -2,7 +2,7 @@ package com.jaume.penjat;
 
 public class Tauler {
     private Integer intents;
-    private String paraulaSecreta;
+    private char[] paraulaSecreta;
 
     /*
      * Constructors
@@ -11,7 +11,7 @@ public class Tauler {
     public Tauler() {
     }
     // Constructor
-    public Tauler(Integer intents, String paraulaSecreta) {
+    public Tauler(Integer intents, char[] paraulaSecreta) {
         this.intents = intents;
         this.paraulaSecreta = paraulaSecreta;
     }
@@ -23,14 +23,14 @@ public class Tauler {
     public Integer getIntents() {
         return intents;
     }
-    public String getParaulaSecreta() {
+    public char[] getParaulaSecreta() {
         return paraulaSecreta;
     }
     // Setters
     public void setIntents(Integer intents) {
         this.intents = intents;
     }
-    public void setParaulaSecreta(String paraulaSecreta) {
+    public void setParaulaSecreta(char[] paraulaSecreta) {
         this.paraulaSecreta = paraulaSecreta;
     }
 
@@ -38,7 +38,9 @@ public class Tauler {
     * Methods
     * */
     // Método inicialitzarPartida
-    public inicialitzarPartida(String paraula, Integer nombreLletres) {
-
+    public void inicialitzarPartida(String paraula, Integer vides) {
+        char[] words = paraula.toCharArray();
+        setParaulaSecreta(words);
+        setIntents(vides);
     }
 }
