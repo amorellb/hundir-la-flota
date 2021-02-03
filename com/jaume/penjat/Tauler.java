@@ -1,6 +1,9 @@
 package com.jaume.penjat;
 
+import com.sun.jdi.CharType;
+
 public class Tauler {
+
 
     public String imprimirVides() {
 
@@ -17,5 +20,15 @@ public class Tauler {
 
     }
 
+
+    public Boolean hasGuanyat() {
+
+        if (String.join("", palabraEndevinada).equals(String.valueOf(paraulaSecreta))) {//String.valueOf(paraulaSecreta)? Character.toString(paraulaSecreta)
+            return true;
+        }
+        return false;
+    }
+
 }
+
 
