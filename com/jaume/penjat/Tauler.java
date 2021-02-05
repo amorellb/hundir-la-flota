@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class Tauler {
     private Integer intents;
     private char[] paraulaSecreta;
-    private String[] palabraEndevinada;
+    private String[] palabraEndevinada; // Només permet declarar l'array amb un tamany definit
 
     /*
      * Constructors
@@ -63,9 +63,13 @@ public class Tauler {
 
     // Método verificar
     public String verificar(String lletra) {
-        for (char word : paraulaSecreta) {
-            if (Character.toString(word).equals(lletra))
-                return lletra;
+        this.palabraEndevinada = new String[this.paraulaSecreta.length];
+        for (int i = 0; i < this.paraulaSecreta.length; i++) {
+            if (Character.toString(this.paraulaSecreta[i]).equals(lletra)) {
+                this.palabraEndevinada[i] = lletra;
+            } else if (!Character.toString(this.paraulaSecreta[i]).equals(lletra)) {
+                this.palabraEndevinada[i] = null;
+            }
         }
         return "Lletra incorrecte";
     }
