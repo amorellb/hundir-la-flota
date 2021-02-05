@@ -1,7 +1,6 @@
 package com.jaume.penjat;
 
 
-import java.util.Arrays;
 
 public class Tauler {
     private Integer intents;
@@ -77,14 +76,18 @@ public class Tauler {
 
     // Método imprimir
     public String imprimir() {
-        for (int i = 0; i < paraulaSecreta.length; i++) {
-            if (Character.toString(paraulaSecreta[i]).equals(" ")) {
-                palabraEndevinada[i] = " ";
+        this.palabraEndevinada = new String[this.paraulaSecreta.length];
+        for (int i = 0; i < this.paraulaSecreta.length; i++) {
+            if (Character.toString(this.paraulaSecreta[i]).equals(" ")) {
+                this.palabraEndevinada[i] = " ";
             } else {
-                palabraEndevinada[i] = "_";
+                this.palabraEndevinada[i] = "_";
             }
         }
-        return Arrays.toString(palabraEndevinada);
+//Arrays.toString(this.palabraEndevinada)
+        String palabra= String.join("",this.palabraEndevinada);
+        return palabra;
+
     }
 
     public String imprimirVides() {
@@ -92,7 +95,8 @@ public class Tauler {
         //int intents= Integer.parseInt(intents);//convertir intents de String a número para poder hacer intents-1
         if (intents == 0) {
             System.out.println("No et queden intents");
-        } ;
+        }
+        ;
         if (verificar("") == "Lletra incorrecte") {
             intents = intents - 1;
             return Integer.toString(intents);
