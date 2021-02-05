@@ -71,6 +71,7 @@ public class Tauler {
                 this.palabraEndevinada[i] = null;
             }
         }
+        this.intents--;
         return "Lletra incorrecte";
     }
 
