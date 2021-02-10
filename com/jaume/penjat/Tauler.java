@@ -71,13 +71,21 @@ public class Tauler {
 
     // Método verificar
     public String verificar(String lletra) {
-        for (int i = 0; i < this.paraulaSecreta.length; i++) {
-            if (Character.toString(this.paraulaSecreta[i]).equals(lletra)) {
-                this.palabraEndevinada[i] = lletra;
+        if (lletra.length() > 1) {
+            return "Lletra incorrecte";
+        } else {
+            boolean exist = false;
+            for (int i = 0; i < this.paraulaSecreta.length; i++) {
+                if (Character.toString(this.paraulaSecreta[i]).equals(lletra)) {
+                    exist = true;
+                    this.palabraEndevinada[i] = lletra;
+                }
             }
+            if (!exist) {
+                intents--;
+            }
+            return "";
         }
-        intents--;
-        return "Lletra incorrecte";
     }
 
     // Método imprimir
