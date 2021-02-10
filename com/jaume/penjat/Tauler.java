@@ -73,8 +73,6 @@ public class Tauler {
         for (int i = 0; i < this.paraulaSecreta.length; i++) {
             if (Character.toString(this.paraulaSecreta[i]).equals(lletra)) {
                 this.palabraEndevinada[i] = lletra;
-            } else if (!Character.toString(this.paraulaSecreta[i]).equals(lletra)) {
-                this.palabraEndevinada[i] = null;
             }
         }
         intents--;
@@ -83,16 +81,6 @@ public class Tauler {
 
     // Método imprimir
     public String imprimir() {
-        /*String[] arrayPalabra = new String[this.paraulaSecreta.length];
-        for (int i = 0; i < this.paraulaSecreta.length; i++) {
-            if (this.palabraEndevinada[i] == null) {
-                arrayPalabra[i] = "_";
-            } else if (this.palabraEndevinada[i].equals(" ")) {
-                arrayPalabra[i] = " ";
-            } else if (this.palabraEndevinada[i].equals(paraulaSecreta[i])) {
-                arrayPalabra[i] = palabraEndevinada[i];
-            }
-        }*/
         String palabra = "";
         for (int i = 0; i < this.paraulaSecreta.length; i++) {
             if (this.palabraEndevinada[i] == null) {
@@ -107,13 +95,13 @@ public class Tauler {
     }
 
     public String imprimirVides() {
-            return "Et queden " + this.intents + " vides de " + this.intentsInicials;
+        return "Et queden " + this.intents + " vides de " + this.intentsInicials;
     }
 
 
     public Boolean hasGuanyat() {
 
-        if (String.join("", palabraEndevinada).equals(String.valueOf(paraulaSecreta))) {//String.valueOf(paraulaSecreta)? Character.toString(paraulaSecreta)
+        if (String.join("", palabraEndevinada).equals(String.valueOf(paraulaSecreta))) { //String.valueOf(paraulaSecreta)? Character.toString(paraulaSecreta)
             return true;
         }
         return false;
