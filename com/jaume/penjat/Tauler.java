@@ -47,6 +47,7 @@ public class Tauler {
     }
 
     private void setIntentsInicials(Integer intentsInicials) {
+        this.intentsInicials = intentsInicials;
     }
 
     public void setParaulaSecreta(char[] paraulaSecreta) {
@@ -99,17 +100,23 @@ public class Tauler {
     }
 
     public String imprimirVides() {
-
-        return "Et queden " + this.intents + " vides de " + this.intentsInicials;
+        if (this.intents > 1) {
+            return "Et queden " + this.intents + " vides de " + this.intentsInicials;
         }
+        return "Et queda " + this.intents + " vida de " + this.intentsInicials;
+    }
 
-        
+
     public Boolean hasGuanyat() {
+        String palabra = "";
+        for (Character letra : paraulaSecreta) {
 
-        if (String.join("", palabraEndevinada).equals(String.valueOf(paraulaSecreta))) {//String.valueOf(paraulaSecreta)? Character.toString(paraulaSecreta)
-            return true;
+            palabra.concat(letra.toString());
         }
-        return false;
+        if (String.join("", palabraEndevinada).equals(palabra)) {
+            return false;
+        }
+        return true;
     }
 
 }
