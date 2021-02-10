@@ -1,10 +1,8 @@
 package com.jaume.penjat;
 
-
-import java.util.Arrays;
-
 public class Tauler {
     private Integer intents;
+    private Integer intentsInicials;
     private char[] paraulaSecreta;
     private String[] palabraEndevinada; // Només permet declarar l'array amb un tamany definit
 
@@ -30,6 +28,10 @@ public class Tauler {
         return intents;
     }
 
+    public Integer getIntentsInicials() {
+        return intentsInicials;
+    }
+
     public char[] getParaulaSecreta() {
         return paraulaSecreta;
     }
@@ -41,6 +43,9 @@ public class Tauler {
     // Setters
     public void setIntents(Integer intents) {
         this.intents = intents;
+    }
+
+    private void setIntentsInicials(Integer intentsInicials) {
     }
 
     public void setParaulaSecreta(char[] paraulaSecreta) {
@@ -59,11 +64,12 @@ public class Tauler {
         char[] words = paraula.toCharArray();
         setParaulaSecreta(words);
         setIntents(vides);
+        setIntentsInicials(vides);
+        setPalabraEndevinada(new String[paraula.length()]);
     }
 
     // Método verificar
     public String verificar(String lletra) {
-        this.palabraEndevinada = new String[this.paraulaSecreta.length];
         for (int i = 0; i < this.paraulaSecreta.length; i++) {
             if (Character.toString(this.paraulaSecreta[i]).equals(lletra)) {
                 this.palabraEndevinada[i] = lletra;
@@ -71,35 +77,37 @@ public class Tauler {
                 this.palabraEndevinada[i] = null;
             }
         }
-        this.intents--;
+        intents--;
         return "Lletra incorrecte";
     }
 
     // Método imprimir
     public String imprimir() {
-        for (int i = 0; i < paraulaSecreta.length; i++) {
-            if (Character.toString(paraulaSecreta[i]).equals(" ")) {
-                palabraEndevinada[i] = " ";
-            } else {
-                palabraEndevinada[i] = "_";
+        /*String[] arrayPalabra = new String[this.paraulaSecreta.length];
+        for (int i = 0; i < this.paraulaSecreta.length; i++) {
+            if (this.palabraEndevinada[i] == null) {
+                arrayPalabra[i] = "_";
+            } else if (this.palabraEndevinada[i].equals(" ")) {
+                arrayPalabra[i] = " ";
+            } else if (this.palabraEndevinada[i].equals(paraulaSecreta[i])) {
+                arrayPalabra[i] = palabraEndevinada[i];
+            }
+        }*/
+        String palabra = "";
+        for (int i = 0; i < this.paraulaSecreta.length; i++) {
+            if (this.palabraEndevinada[i] == null) {
+                palabra = palabra + "_";
+            } else if (this.palabraEndevinada[i].equals(" ")) {
+                palabra = palabra + " ";
+            } else if (this.palabraEndevinada[i].equals(Character.toString(paraulaSecreta[i]))) {
+                palabra = palabra + palabraEndevinada[i];
             }
         }
-        return Arrays.toString(palabraEndevinada);
+        return palabra;
     }
 
     public String imprimirVides() {
-
-        //int intents= Integer.parseInt(intents);//convertir intents de String a número para poder hacer intents-1
-        if (intents == 0) {
-            System.out.println("No et queden intents");
-        } ;
-        if (verificar("") == "Lletra incorrecte") {
-            intents = intents - 1;
-            return Integer.toString(intents);
-        } else {
-            return "Et queden " + intents + " vides de " + intents;//hay que diferencia intents inicial con intents-1
-        }
-
+            return "Et queden " + this.intents + " vides de " + this.intentsInicials;
     }
 
 
