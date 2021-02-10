@@ -105,14 +105,24 @@ public class Tauler {
 
     // Método hasGuanyat
     public Boolean hasGuanyat() {
-        String palabra = "";
+        /*String palabra = "";
+        String palabradeloscojones = "";
         for (Character letra : paraulaSecreta) {
-            palabra.concat(letra.toString());
+            palabradeloscojones = palabra.concat(letra.toString());
         }
-        if (String.join("", palabraEndevinada).equals(palabra)) {
-            return false;
+        if (String.join("", palabraEndevinada).equals(palabradeloscojones)) {
+            System.out.println(palabra);
+            System.out.println(palabradeloscojones);
+            return true;
         }
-        return true;
+        System.out.println("palabra " + palabra);
+        System.out.println("palabradeloscojones " + palabradeloscojones);
+        return false;*/
+
+        if (String.valueOf(paraulaSecreta).equals(String.join("", palabraEndevinada))) {
+            return true;
+        }
+        return false;
     }
 
 }
