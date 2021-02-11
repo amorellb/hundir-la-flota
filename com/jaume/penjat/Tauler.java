@@ -66,7 +66,12 @@ public class Tauler {
         setParaulaSecreta(words);
         setIntents(vides);
         setIntentsInicials(vides);
-        setPalabraEndevinada(new String[paraula.length()]);
+        setPalabraEndevinada(new String[words.length]);
+        for (int i = 0; i < words.length; i++) {
+            if (Character.toString(words[i]).equals(" ")) {
+                this.palabraEndevinada[i] = " ";
+            }
+        }
     }
 
     // Método verificar
@@ -94,8 +99,6 @@ public class Tauler {
         for (int i = 0; i < this.paraulaSecreta.length; i++) {
             if (this.palabraEndevinada[i] == null) {
                 palabra = palabra + "_";
-            } else if (this.palabraEndevinada[i].equals(" ")) {
-                palabra = palabra + " ";
             } else if (this.palabraEndevinada[i].equals(Character.toString(paraulaSecreta[i]))) {
                 palabra = palabra + palabraEndevinada[i];
             }
