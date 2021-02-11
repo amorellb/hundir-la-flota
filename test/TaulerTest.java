@@ -28,7 +28,7 @@ class TaulerTest {
 
     @Test
     void verificarEntradaIncorrecte() {
-        assertEquals("Lletra incorrecte",this.tauler.verificar("ll"));
+        assertEquals("Lletra incorrecte", this.tauler.verificar("ll"));
     }
 
     @Test
@@ -40,7 +40,7 @@ class TaulerTest {
     @Test
     void verificarEntradaCorrecteErrada() {
         this.tauler.verificar("n");
-        assertEquals(3,this.tauler.getIntents());
+        assertEquals(3, this.tauler.getIntents());
     }
 
     @Test
@@ -63,8 +63,6 @@ class TaulerTest {
         this.tauler.verificar("l");
         assertEquals("paraula", this.tauler.imprimir());
     }
-
-
 
     @Test
     void imprimirVidesPlural() {
